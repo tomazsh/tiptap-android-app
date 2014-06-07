@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">TipTap</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="check_amount">Check Amount</string>
     <string name="action_settings">Settings</string>
 
 </resources>
