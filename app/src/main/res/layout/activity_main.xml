@@ -9,17 +9,18 @@
     tools:context="com.nedeljko.tiptap.app.MainActivity">
 
     <TextView
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="$"
-        android:id="@+id/rvCurrency"
-        android:textSize="22dp"
+        android:id="@+id/tvCurrency"
+        android:textSize="22sp"
         android:layout_alignBottom="@+id/etCheckAmount"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/etCheckAmount"
-        android:layout_marginTop="7dp" />
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="7dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,8 +32,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:hint="@string/check_amount"
-        android:textSize="22dp"
-        android:layout_toRightOf="@+id/rvCurrency" />
+        android:textSize="22sp"
+        android:layout_toRightOf="@+id/tvCurrency" />
 
     <SeekBar
         android:layout_width="wrap_content"
@@ -73,8 +74,29 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="$ 0"
         android:id="@+id/tvTotalAmount"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/sbTipPercentage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npSplitCount"
+        android:longClickable="true"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Amount per Person"
+        android:id="@+id/tvAmountPerPerson"
+        android:layout_below="@+id/tvTotalAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp" />
 
 
 </RelativeLayout>
