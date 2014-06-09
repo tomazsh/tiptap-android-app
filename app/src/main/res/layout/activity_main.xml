@@ -2,101 +2,222 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@android:color/black"
     tools:context="com.nedeljko.tiptap.app.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llCheckAmount"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="$"
-        android:id="@+id/tvCurrency"
-        android:textSize="22sp"
-        android:layout_alignBottom="@+id/etCheckAmount"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/etCheckAmount"
-        android:layout_marginTop="7dp"
-        android:layout_marginRight="7dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/etCheckAmount"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="@string/check_amount"
-        android:textSize="22sp"
-        android:layout_toRightOf="@+id/tvCurrency" />
-
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sbTipPercentage"
-        android:layout_below="@+id/tvTipAmount"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:progress="20" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Tip Amount"
-        android:id="@+id/tvTipAmount"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/etCheckAmount"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="20%"
-        android:id="@+id/tvTipPercentage"
-        android:layout_alignTop="@+id/tvTipAmount"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="$ 0"
-        android:id="@+id/tvTotalAmount"
-        android:layout_below="@+id/sbTipPercentage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp" />
+        android:gravity="center"
+        android:paddingBottom="32dp"
+        android:paddingTop="28dp">
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/npSplitCount"
-        android:longClickable="true"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/tvCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:textSize="48sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-light"
+            android:text="$" />
 
-    <TextView
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/etCheckAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:textSize="48sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#242424"
+            android:fontFamily="sans-serif-light"
+            android:background="@android:color/black" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llExtras"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Amount per Person"
-        android:id="@+id/tvAmountPerPerson"
-        android:layout_below="@+id/tvTotalAmount"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp" />
+        android:layout_below="@+id/llCheckAmount"
+        android:paddingBottom="36dp"
+        android:layout_centerHorizontal="true">
+
+        <GridLayout
+            android:id="@+id/glTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2">
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbFirst"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:checked="false" />
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbSecond"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbThird"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbFourth"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbFifth"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:button="@null"
+                android:id="@+id/tbCustom"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:onClick="onTipToggleButtonClicked"
+                android:textSize="14dp"
+                android:textColor="@drawable/radio_button_color"
+                android:background="@drawable/checkbox_background"
+                android:gravity="center"
+                android:textStyle="bold" />
+        </GridLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlSplitCount"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/checkbox_background"
+            android:gravity="center"
+            android:clickable="true"
+            android:textColor="@drawable/radio_button_color"
+            android:onClick="onSplitCountClicked">
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tvSplitCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:textSize="48sp"
+                android:textColor="@drawable/radio_button_color"
+                android:fontFamily="sans-serif-light"
+                android:text="2" />
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tvSplitCountLabel"
+                android:layout_below="@+id/tvSplitCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-4dp"
+                android:textSize="14sp"
+                android:textColor="@drawable/radio_button_color"
+                android:textStyle="bold"
+                android:text="@string/people_capitalized" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/rlTotals"
+        android:layout_below="@+id/llExtras"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="64sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="sans-serif-light" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvTotalAmountLabel"
+            android:layout_below="@+id/tvTotalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TOTAL AMOUNT"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvAmountPerPerson"
+            android:layout_below="@+id/tvTotalAmountLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="$0.00"
+            android:textSize="48sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="sans-serif-light" />
+        <TextView
+            android:gravity="center"
+            android:layout_below="@+id/tvAmountPerPerson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PER PERSON"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+        </RelativeLayout>
 
 
 </RelativeLayout>
