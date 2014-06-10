@@ -27,10 +27,11 @@ public class SplitPickerDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        ContextThemeWrapper context = new ContextThemeWrapper(getActivity(), android.R.style.Theme_Holo_Dialog);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.fragment_split_picker, null);
         npSplitCount = (NumberPicker)v.findViewById(R.id.npSplitCount);
-
 
         String[] values = new String[9];
         for (int i = 0; i < values.length; i++) {
@@ -42,19 +43,17 @@ public class SplitPickerDialog extends DialogFragment {
         npSplitCount.setDisplayedValues(values);
         npSplitCount.setValue(Math.min(Math.max(0, splitCount-2), 8));
 
-        ContextThemeWrapper context = new ContextThemeWrapper(getActivity(), android.R.style.Theme_Holo_Dialog);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        builder.setTitle("Split Bill")
+        builder.setTitle(R.string.split_bill)
                 .setView(v)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         int count = Integer.parseInt(npSplitCount.getDisplayedValues()[npSplitCount.getValue()]);
                         mListener.onFinishSplitPickerDialog(count);
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 

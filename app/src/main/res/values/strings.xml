@@ -5,5 +5,7 @@
     <string name="people_capitalized">PEOPLE</string>
     <string name="total_amount">TOTAL AMOUNT</string>
     <string name="per_person">PER PERSON</string>
+    <string name="split_bill">Split Bill</string>
+    <string name="adjust_tip_amount">Adjust Tip Amount</string>
 
 </resources>

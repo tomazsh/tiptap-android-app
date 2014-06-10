@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.SeekBar;
@@ -24,7 +25,9 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-public class MainActivity extends Activity implements SplitPickerDialog.SplitPickerDialogListener {
+public class MainActivity extends Activity implements
+        SplitPickerDialog.SplitPickerDialogListener,
+        TipAmountDialog.TipAmountDialogListener {
     private EditText etCheckAmount;
     private TextView tvCurrency;
     private TextView tvTotalAmount;
@@ -125,7 +128,7 @@ public class MainActivity extends Activity implements SplitPickerDialog.SplitPic
     }
 
     private int getDefaultCustomTip(SharedPreferences preferences, int defaultCustomTip) {
-        return preferences.getInt("defaultCustomTip", defaultCustomTip);
+        return preferences.getInt("customTip", defaultCustomTip);
     }
 
     private int getDefaultSplitCount(SharedPreferences preferences, int defaultSplitCount) {
@@ -182,16 +185,20 @@ public class MainActivity extends Activity implements SplitPickerDialog.SplitPic
         if (i < 5) {
             return sTipValues[i];
         } else {
-            return getCustomTipPercentage();
+            return customTipValue;
         }
     }
 
-    private int getCustomTipPercentage() {
-        return customTipValue;
-    }
-
     public void onTipToggleButtonClicked(View v) {
+        dismissKeyboard();
         ToggleButton tb = (ToggleButton)v;
+        if (tb.equals(tbCustom) && !tb.isChecked()) {
+            tb.setChecked(true);
+            FragmentManager fm = getFragmentManager();
+            TipAmountDialog tipAmountDialog = new TipAmountDialog(customTipValue);
+            tipAmountDialog.show(fm, "fragment_tip_amount");
+            return;
+        }
         if (!tb.isChecked()) {
             tb.toggle(); // Toggle back if the button is already checked
         } else {
@@ -201,10 +208,28 @@ public class MainActivity extends Activity implements SplitPickerDialog.SplitPic
     }
 
     public void onSplitCountClicked(View v) {
+        dismissKeyboard();
         FragmentManager fm = getFragmentManager();
         int splitCount = Integer.parseInt(tvSplitCount.getText().toString());
         SplitPickerDialog splitPickerDialog = new SplitPickerDialog(splitCount);
         splitPickerDialog.show(fm, "fragment_split_picker");
+    }
+
+    private void dismissKeyboard() {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(etCheckAmount.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onFinishTipAmountDialog(int tipAmount) {
+        customTipValue = tipAmount;
+
+        String customTipString = Integer.toString(customTipValue) + "%";
+        tbCustom.setTextOn(customTipString);
+        tbCustom.setTextOff(customTipString);
+        tbCustom.setChecked(true);
+
+        onAmountsChanged();
     }
 
     @Override

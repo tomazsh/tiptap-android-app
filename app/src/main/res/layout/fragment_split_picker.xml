@@ -4,7 +4,9 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
     <NumberPicker
         android:id="@+id/npSplitCount"
         android:layout_width="wrap_content"
@@ -15,7 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/npSplitCount"
+        android:layout_marginLeft="8dp"
         android:layout_centerHorizontal="true"
         android:text="people"
-        android:textSize="30sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
 </LinearLayout>

@@ -132,7 +132,7 @@
                 android:onClick="onTipToggleButtonClicked"
                 android:textSize="14dp"
                 android:textColor="@drawable/radio_button_color"
-                android:background="@drawable/checkbox_background"
+                android:background="@drawable/dotted_checkbox_background"
                 android:gravity="center"
                 android:textStyle="bold" />
         </GridLayout>
