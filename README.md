@@ -3,7 +3,7 @@ TipTap
 
 TipTap is a simple, but chic tip calculator for Android. It simplifies tip calculation by providing a carefully selected set of predefined tip amounts, but also allows you to customize the last button with your own value. It also supports splitting the total amount amongst multiple people and it presents all of this in an effortless way.
 
-<img src="https://www.dropbox.com/meta_dl/eyJzdWJfcGF0aCI6ICIiLCAidGVzdF9saW5rIjogZmFsc2UsICJzZXJ2ZXIiOiAiZGwuZHJvcGJveHVzZXJjb250ZW50LmNvbSIsICJpdGVtX2lkIjogbnVsbCwgImlzX2RpciI6IGZhbHNlLCAidGtleSI6ICJkOWF4Zzlvb3poZnlmdHgifQ/AAMDHeNWyOpni4SGkG6FJ9Oqzt9Xvnv-r0FHYwcwfOy2sA" alt="TipTap Android tip calculator" title"TipTap Android tip calculator" width="300" height="533" />&nbsp;<img src="https://www.dropbox.com/meta_dl/eyJzdWJfcGF0aCI6ICIiLCAidGVzdF9saW5rIjogZmFsc2UsICJzZXJ2ZXIiOiAiZGwuZHJvcGJveHVzZXJjb250ZW50LmNvbSIsICJpdGVtX2lkIjogbnVsbCwgImlzX2RpciI6IGZhbHNlLCAidGtleSI6ICJmajZjcXRnMWszNzUzeWUifQ/AAN4Sw_VrB8XmIDT6lTROJvz4lQgUst-pPCMaCvvQa2v_Q" alt="TipTap Android tip calculator" title"TipTap Android tip calculator" width="300" height="533" />
+<img src="http://f.cl.ly/items/2B3e2L1L0U1x1j1q2J3I/TipTap%20Screen.png" alt="TipTap Android tip calculator" title"TipTap Android tip calculator" width="300" height="533" />&nbsp;<img src="http://f.cl.ly/items/0m3C3n1c2Z1v1O2w302S/TipTap%20Demo.gif" alt="TipTap Android tip calculator" title"TipTap Android tip calculator" width="300" height="533" />
 
 Features
 --------
